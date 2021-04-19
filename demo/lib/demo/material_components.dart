@@ -1,0 +1,106 @@
+import 'package:demo_20210316/demo/simple_dialog_demo.dart';
+import 'package:demo_20210316/demo/slider_demo.dart';
+import 'package:flutter/material.dart';
+import './butten_demo.dart';
+import './floating_action_button_demo.dart';
+import './popup_menu_button_demo.dart';
+import './form_demo.dart';
+import './checkbox_demo.dart';
+import './radio_demo.dart';
+import './switch_demo.dart';
+import './slider_demo.dart';
+import './datetime_demo.dart';
+import './simple_dialog_demo.dart';
+import './alert_dialog_demo.dart';
+import './bottom_sheet_demo.dart';
+import './snack_bar_demo.dart';
+import './expension_panel_demo.dart';
+import './chip_demo.dart';
+import './data_table_demo.dart';
+import './pagingated_date_table_demo.dart';
+import './card_demo.dart';
+import './stepper_demo.dart';
+
+class MaterialComponents extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('MaterialComponents'),
+        elevation: 0.0,
+      ),
+      body: ListView(
+        children: <Widget>[
+          ListItem(title: 'StepperDemo', page: StepperDemo()),
+          ListItem(title: 'Card demo', page: CardDemo()),
+          ListItem(
+              title: 'Pagingated data Table table demo',
+              page: pagingatedDateTableDemoDemo()),
+          ListItem(title: 'Data Table', page: DataTableDemo()),
+          ListItem(title: 'Chip', page: ChipDemo()),
+          ListItem(title: 'Expension Panel Demo', page: ExpensionPanelDemo()),
+          ListItem(title: 'SnackBarDemo', page: SnackBarDemo()),
+          ListItem(title: 'Bottom sheet demo', page: BottomSheetDemo()),
+          ListItem(title: 'Alert Dialog', page: OpenAliertDialogDemo()),
+          ListItem(title: 'SimpleDialogDemo', page: SimpleDialogDemo()),
+          ListItem(title: 'DateTime', page: DateTimeDemo()),
+          ListItem(title: 'Slider', page: SliderDemo()),
+          ListItem(title: 'Switch', page: SwitchDemo()),
+          ListItem(title: 'Radio', page: RadioDemo()),
+          ListItem(title: 'CheckBox', page: CheckBoxDemo()),
+          ListItem(title: 'From', page: FormDemo()),
+          ListItem(title: 'PopupButtonDemo', page: PopupMenuButtonDemo()),
+          ListItem(title: 'ButtonDemo', page: ButtonDemo()),
+          ListItem(
+              title: 'FloatingButtonActionButtonDemo',
+              page: FloatingButtonActionButtonDemo()),
+        ],
+      ),
+    );
+  }
+}
+
+class _WidgetDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('_WidgetDemo'),
+        elevation: 0.0,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ListItem extends StatelessWidget {
+  final String title;
+  final Widget page;
+
+  ListItem({
+    this.title,
+    this.page,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title),
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => page));
+      },
+    );
+  }
+}
